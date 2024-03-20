@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_rooms">
+
+    <fragment
+        android:id="@+id/nav_saved"
+        android:name="com.project.roomeet.fragments.SavedListingFragment"
+        android:label="Saved Listings"
+        tools:layout="@layout/fragment_saved_listings" />
+
+    <fragment
+        android:id="@+id/nav_rooms"
+        android:name="com.project.roomeet.fragments.ListingsFragment"
+        android:label="Find Rooms"
+        tools:layout="@layout/fragment_listings" />
+
+    <fragment
+        android:id="@+id/nav_room_mates"
+        android:name="com.project.roomeet.fragments.UsersFragment"
+        android:label="Find Room mates"
+        tools:layout="@layout/fragment_users" />
+</navigation>

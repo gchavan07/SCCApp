@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "818148041887",
+    "firebase_url": "https://roomeet-535ad-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "roomeet-535ad",
+    "storage_bucket": "roomeet-535ad.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:818148041887:android:a4b55e74e7e53c5cd9aeaa",
+        "android_client_info": {
+          "package_name": "com.project.roomeet"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDHhwxD73kCMO9KkzmVw6qQPCrnzOieLXo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
