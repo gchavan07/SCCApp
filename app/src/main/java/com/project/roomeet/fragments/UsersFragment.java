@@ -18,6 +18,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.project.roomeet.PrefHelper;
+import com.project.roomeet.adapters.RoomMateAdapter;
 import com.project.roomeet.adapters.UserAdapter;
 import com.project.roomeet.adapters.UserListingAdapter;
 import com.project.roomeet.databinding.FragmentListingsBinding;
@@ -38,7 +39,7 @@ public class UsersFragment extends Fragment {
     DatabaseReference myRef;
     List<User> userList;
 
-    UserAdapter userAdapter;
+    RoomMateAdapter userAdapter;
 
     String email;
     PrefHelper prefHelper;
@@ -52,7 +53,7 @@ public class UsersFragment extends Fragment {
         email = prefHelper.getString(PrefHelper.EMAIL);
         userList = new ArrayList<>();
 
-        userAdapter = new UserAdapter(getContext(), userList);
+        userAdapter = new RoomMateAdapter(getContext(), userList);
 
         RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getContext());
         binding.recyclerView.setLayoutManager(mLayoutManager);
@@ -80,16 +81,15 @@ public class UsersFragment extends Fragment {
                         User user = snapshot.getValue(User.class);
 
                         if (user != null) {
-                            if (!email.equals(user.email)) userList.add(user);
-
-
+                            if (!email.equals(user.email)) {
+                                userList.add(user);
+                            } else {
+                                prefHelper.saveString(PrefHelper.USERID, user.id);
+                                prefHelper.saveString(PrefHelper.NAME, user.name);
+                            }
                         }
-
-
                     }
                     userAdapter.notifyDataSetChanged();
-
-
                 }
 
             }

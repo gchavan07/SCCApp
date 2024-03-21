@@ -1,9 +1,11 @@
 package com.project.roomeet.activities;
 
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -14,6 +16,8 @@ import androidx.activity.EdgeToEdge;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -25,6 +29,8 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.project.roomeet.GPSTracker;
+import com.project.roomeet.MapsActivity;
 import com.project.roomeet.databinding.ActivityAddListingBinding;
 import com.project.roomeet.models.Listing;
 
@@ -35,10 +41,13 @@ public class AddListingActivity extends AppCompatActivity {
 
     private ActivityAddListingBinding binding;
     int SELECT_PICTURE = 200;
+    int MY_PERMISSIONS_REQUEST_LOCATION = 100;
     String imageUrl;
 
     FirebaseStorage storage;
     StorageReference storageReference;
+
+    String latitude, longitude;
 
 
     @Override
@@ -63,6 +72,14 @@ public class AddListingActivity extends AppCompatActivity {
             }
         });
 
+        binding.etLocation.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(AddListingActivity.this, MapsActivity.class);
+                startActivityForResult(i, 2);
+            }
+        });
+
         binding.btnSave.setOnClickListener(view -> {
 
             String title = binding.etRoomType.getText().toString();
@@ -72,6 +89,7 @@ public class AddListingActivity extends AppCompatActivity {
             String mobile = binding.etPhone.getText().toString();
             String address = binding.etAddress.getText().toString();
             String rent = binding.etRent.getText().toString();
+            String location = binding.etLocation.getText().toString();
 
 
             if (TextUtils.isEmpty(title)) {
@@ -111,6 +129,10 @@ public class AddListingActivity extends AppCompatActivity {
                 Toast.makeText(AddListingActivity.this, "Please upload the image", Toast.LENGTH_SHORT).show();
                 return;
             }
+            if (TextUtils.isEmpty(location)) {
+                Toast.makeText(AddListingActivity.this, "Please select the location", Toast.LENGTH_SHORT).show();
+                return;
+            }
             DatabaseReference myRef;
             FirebaseDatabase firebaseDatabase;
             DatabaseReference rootReference;
@@ -128,6 +150,7 @@ public class AddListingActivity extends AppCompatActivity {
             listing.setLandmark(landMark);
             listing.setRent(rent);
             listing.setImage(imageUrl);
+            listing.setLocation(location);
             String id = myRef.push().getKey();
             listing.setId(id);
             myRef.child(Objects.requireNonNull(id)).setValue(listing);
@@ -145,7 +168,7 @@ public class AddListingActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-        if (resultCode == RESULT_OK) {
+
 
             if (requestCode == SELECT_PICTURE) {
 
@@ -155,8 +178,14 @@ public class AddListingActivity extends AppCompatActivity {
                 uploadImage(selectedImageUri);
 
 
+            } else if (requestCode == 2) {
+
+                latitude = data.getStringExtra("latitude");
+                longitude = data.getStringExtra("longitude");
+                binding.etLocation.setText(latitude + "," + longitude);
+
             }
-        }
+       
 
     }
 
@@ -212,4 +241,39 @@ public class AddListingActivity extends AppCompatActivity {
                     });
         }
     }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+        if (checkLocationPermission()) {
+
+            startService(new Intent(AddListingActivity.this, GPSTracker.class));
+        }
+
+    }
+
+    public boolean checkLocationPermission() {
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+
+            // Asking user if explanation is needed
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.ACCESS_FINE_LOCATION)) {
+
+                // Show an expanation to the user *asynchronously* -- don't block
+                // this thread waiting for the user's response! After the user
+                // sees the explanation, try again to request the permission.
+
+                //Prompt the user once explanation has been shown
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
+
+
+            } else {
+                // No explanation needed, we can request the permission.
+                ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, MY_PERMISSIONS_REQUEST_LOCATION);
+            }
+            return false;
+        } else {
+            return true;
+        }
+    }
+
 }

@@ -109,6 +109,18 @@
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_bg"
+            android:focusable="false"
+            android:hint="Location"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnSave"

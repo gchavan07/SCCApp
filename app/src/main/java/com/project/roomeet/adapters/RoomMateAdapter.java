@@ -2,21 +2,23 @@ package com.project.roomeet.adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.AppCompatImageView;
+import androidx.appcompat.widget.AppCompatButton;
 import androidx.appcompat.widget.AppCompatTextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.project.roomeet.R;
+import com.project.roomeet.activities.ChatActivity;
 import com.project.roomeet.models.User;
 
 import java.util.List;
 
-public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
+public class RoomMateAdapter extends RecyclerView.Adapter<RoomMateAdapter.ViewHolder> {
 
     private User user;
     private Context context;
@@ -26,7 +28,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     public class ViewHolder extends RecyclerView.ViewHolder {
 
         public AppCompatTextView tvEmail, tvName, tvPhone;
-        AppCompatImageView ivImage;
+        AppCompatButton btnChat;
 
         ViewHolder(View view) {
             super(view);
@@ -34,12 +36,19 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
             tvName = view.findViewById(R.id.tvName);
             tvPhone = view.findViewById(R.id.tvPhone);
             tvEmail = view.findViewById(R.id.tvEmail);
+            btnChat = view.findViewById(R.id.btnChat);
+            btnChat.setOnClickListener(view1 -> {
+                Intent i = new Intent(context, ChatActivity.class);
+                i.putExtra("touserid", userList.get(getAdapterPosition()).id);
+                i.putExtra("tousername", userList.get(getAdapterPosition()).name);
+                context.startActivity(i);
+            });
 
 
         }
     }
 
-    public UserAdapter(Context mContext, List<User> userList) {
+    public RoomMateAdapter(Context mContext, List<User> userList) {
         this.context = mContext;
         this.userList = userList;
 
@@ -50,7 +59,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
-        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_user, parent, false);
+        View itemView = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_room_mate, parent, false);
         return new ViewHolder(itemView);
     }
 

@@ -12,6 +12,8 @@ public class PrefHelper {
 
     public static final String NAME = "NameKey";
 
+    public static final String USERID = "userIdKey";
+
     private static PrefHelper instance;
 
     private SharedPreferences mSharedPreferences;
