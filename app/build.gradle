@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace 'com.project.roomeet'
+    namespace 'com.project.complaint'
     compileSdk 34
 
     defaultConfig {
-        applicationId "com.project.roomeet"
+        applicationId "com.project.complaint"
         minSdk 24
         targetSdk 34
         versionCode 1

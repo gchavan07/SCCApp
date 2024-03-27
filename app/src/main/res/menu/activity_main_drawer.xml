@@ -6,19 +6,14 @@
     <group android:checkableBehavior="single">
 
         <item
-            android:id="@+id/nav_saved"
+            android:id="@+id/nav_my_complaints"
             android:icon="@drawable/baseline_article_24"
-            android:title="Saved Listings" />
+            android:title="My Complaints" />
 
         <item
-            android:id="@+id/nav_rooms"
+            android:id="@+id/nav_submit_complaint"
             android:icon="@drawable/baseline_apps_24"
-            android:title="Find Rooms" />
-
-        <item
-            android:id="@+id/nav_room_mates"
-            android:icon="@drawable/ic_baseline_account_tree_24"
-            android:title="Find Room mates" />
+            android:title="Submit Complaint" />
 
 
         <item

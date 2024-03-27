@@ -57,17 +57,13 @@
         <activity
             android:name=".activities.AdminActivity"
             android:theme="@style/Theme.Roomeet.NoActionBar" />
-        <activity
-            android:name=".activities.AddListingActivity"
-            android:theme="@style/Theme.Roomeet.NoActionBar" />
-        <activity
-            android:name=".activities.ListingActivity"
-            android:theme="@style/Theme.Roomeet.NoActionBar" />
+
         <activity
             android:name=".activities.UsersActivity"
             android:theme="@style/Theme.Roomeet.NoActionBar" />
+
         <activity
-            android:name=".activities.ChatActivity"
+            android:name=".activities.ComplaintActivity"
             android:theme="@style/Theme.Roomeet.NoActionBar" />
     </application>
 

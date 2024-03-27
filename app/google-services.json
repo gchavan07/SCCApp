@@ -1,22 +1,22 @@
 {
   "project_info": {
-    "project_number": "818148041887",
-    "firebase_url": "https://roomeet-535ad-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "roomeet-535ad",
-    "storage_bucket": "roomeet-535ad.appspot.com"
+    "project_number": "541175718836",
+    "firebase_url": "https://smartcitycomplaint-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "smartcitycomplaint",
+    "storage_bucket": "smartcitycomplaint.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:818148041887:android:a4b55e74e7e53c5cd9aeaa",
+        "mobilesdk_app_id": "1:541175718836:android:0f6e7b208d35cec0f388e1",
         "android_client_info": {
-          "package_name": "com.project.roomeet"
+          "package_name": "com.project.complaint"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDHhwxD73kCMO9KkzmVw6qQPCrnzOieLXo"
+          "current_key": "AIzaSyBpjpPBZvNtqcN_Gu1cFitBWOCqh37IrRY"
         }
       ],
       "services": {

@@ -19,5 +19,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Roomeet"
+rootProject.name = "SmartCityComplaint"
 include ':app'

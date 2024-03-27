@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -12,65 +11,96 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:layout_width="200dp"
+            android:id="@+id/ivImage"
+            android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginBottom="50dp"
-            app:srcCompat="@drawable/smart_city" />
+            app:srcCompat="@drawable/baseline_crop_original_24" />
 
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etEmail"
+            android:id="@+id/etTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="@drawable/edit_bg"
+            android:hint="Title"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edit_bg"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
+            android:hint="Address"
+            android:inputType="text"
             android:padding="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/etPassword"
+            android:id="@+id/etLandmark"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/edit_bg"
-            android:hint="Password"
-            android:inputType="textPassword"
+            android:hint="Landmark"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+
+
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_bg"
+            android:focusable="false"
+            android:hint="Location"
+            android:inputType="text"
+            android:padding="10dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etDesc"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/edit_bg"
+            android:hint="Description"
+            android:inputType="textMultiLine"
+            android:minHeight="100dp"
             android:padding="10dp"
             android:textColor="@color/white"
             android:textColorHint="@color/white" />
 
         <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnLogin"
+            android:id="@+id/btnSave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:background="#2979FF"
-            android:text="Login"
+            android:text="Save"
             android:textAllCaps="true"
             android:textColor="@color/white"
             android:textSize="18sp" />
-
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btnRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:background="#FF3D00"
-            android:text="Register"
-            android:textAllCaps="true"
-            android:textColor="@color/white"
-            android:textSize="18sp" />
-
 
     </LinearLayout>
 

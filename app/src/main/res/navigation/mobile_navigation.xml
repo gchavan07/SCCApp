@@ -3,23 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_rooms">
+    app:startDestination="@+id/nav_my_complaints">
 
     <fragment
-        android:id="@+id/nav_saved"
-        android:name="com.project.roomeet.fragments.SavedListingFragment"
-        android:label="Saved Listings"
-        tools:layout="@layout/fragment_saved_listings" />
+        android:id="@+id/nav_my_complaints"
+        android:name="com.project.complaint.fragments.MyComplaintsFragment"
+        android:label="My Complaints"
+        tools:layout="@layout/fragment_my_complaints" />
 
     <fragment
-        android:id="@+id/nav_rooms"
-        android:name="com.project.roomeet.fragments.ListingsFragment"
-        android:label="Find Rooms"
-        tools:layout="@layout/fragment_listings" />
+        android:id="@+id/nav_submit_complaint"
+        android:name="com.project.complaint.fragments.SubmitComplaintFragment"
+        android:label="Submit Complaint"
+        tools:layout="@layout/fragment_submit_complaint" />
 
-    <fragment
-        android:id="@+id/nav_room_mates"
-        android:name="com.project.roomeet.fragments.UsersFragment"
-        android:label="Find Room mates"
-        tools:layout="@layout/fragment_users" />
+
 </navigation>

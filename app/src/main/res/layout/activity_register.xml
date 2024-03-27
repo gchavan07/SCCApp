@@ -21,7 +21,7 @@
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:layout_marginBottom="50dp"
-            app:srcCompat="@drawable/room_mate" />
+            app:srcCompat="@drawable/smart_city" />
 
 
         <androidx.appcompat.widget.AppCompatEditText
