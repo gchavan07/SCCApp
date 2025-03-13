@@ -1,14 +1,14 @@
 {
   "project_info": {
-    "project_number": "541175718836",
-    "firebase_url": "https://smartcitycomplaint-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "smartcitycomplaint",
-    "storage_bucket": "smartcitycomplaint.appspot.com"
+    "project_number": "398340567825",
+    "firebase_url": "https://smartcitycomplaint-6873a-default-rtdb.firebaseio.com",
+    "project_id": "smartcitycomplaint-6873a",
+    "storage_bucket": "smartcitycomplaint-6873a.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:541175718836:android:0f6e7b208d35cec0f388e1",
+        "mobilesdk_app_id": "1:398340567825:android:b6b1309daa00cb95a852b0",
         "android_client_info": {
           "package_name": "com.project.complaint"
         }
@@ -16,7 +16,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyBpjpPBZvNtqcN_Gu1cFitBWOCqh37IrRY"
+          "current_key": "AIzaSyDMZaW5RCvB4ORjj3tjRnqcYcsBgPOraM0"
         }
       ],
       "services": {
